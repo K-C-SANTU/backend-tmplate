@@ -1,5 +1,5 @@
 import { model, Schema, Document } from 'mongoose';
-import { Hotel } from '@interfaces/hotels.interface';
+import { hotel } from '@interfaces/hotels.interface';
 
 const hotelSchema: Schema = new Schema(
     {
@@ -32,5 +32,5 @@ const hotelSchema: Schema = new Schema(
     },
 );
 hotelSchema.set('timestamps', true);
-const hotelModel = model<Hotel & Document>('hotel', hotelSchema);
+const hotelModel = model<hotel & Document>('hotel', hotelSchema);
 export default hotelModel;

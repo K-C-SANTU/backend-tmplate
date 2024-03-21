@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { CreateHotelDto } from '@/dtos/hotels.dto';
-import { Hotel } from '@interfaces/hotels.interface';
+import { hotel } from '@interfaces/hotels.interface';
 import hotelService from '@services/hotels.service';
 
 class HotelsController {
@@ -8,7 +8,7 @@ class HotelsController {
 
     public getHotels = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const findAllHotelsData: Hotel[] = await this.hotelService.findAllHotel();
+            const findAllHotelsData: hotel[] = await this.hotelService.findAllHotel();
             res.status(200).json({ data: findAllHotelsData, message: 'findAll' });
         } catch (error) {
             next(error);
@@ -18,7 +18,7 @@ class HotelsController {
     public getHotelById = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const hotel_id: string = req.params.id;
-            const findOneHotelData: Hotel = await this.hotelService.findHotelById(hotel_id);
+            const findOneHotelData: hotel = await this.hotelService.findHotelById(hotel_id);
 
             res.status(200).json({ data: findOneHotelData, message: 'findOne' });
         } catch (error) {
@@ -29,7 +29,7 @@ class HotelsController {
     public createHotel = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const hotelData: CreateHotelDto = req.body;
-            const createHotelData: Hotel = await this.hotelService.createHotel(hotelData);
+            const createHotelData: hotel = await this.hotelService.createHotel(hotelData);
 
             res.status(201).json({ data: createHotelData, message: 'created' });
         } catch (error) {
