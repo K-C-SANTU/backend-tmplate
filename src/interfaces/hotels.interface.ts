@@ -1,7 +1,7 @@
 import { hotelTables } from './hotelTables.interface';
 import { menuType } from './menuTypes.interface';
 
-export interface Hotel {
+export interface hotel {
     _id: string;
     hotel_name: string;
     hotel_address: string;
