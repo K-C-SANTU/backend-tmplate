@@ -58,7 +58,7 @@ class App {
             set('debug', true);
         }
         try {
-            const res = await connect(dbConnection.url);
+            await connect(dbConnection.url);
             logger.info('Dev DB is Connected...!');
         } catch (error) {
             logger.error('DB ERROR', error);
