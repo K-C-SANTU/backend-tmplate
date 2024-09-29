@@ -36,11 +36,6 @@ services:
       - '27017:27017'
     networks:
       - backend
-
-networks:
-  backend:
-    driver: bridge
-
 volumes:
   data:
     driver: local
